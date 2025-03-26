@@ -3,6 +3,7 @@
 # Ozon API Python Client
 
 Асинхронная Python библиотека для работы с Ozon Seller API
+
 [![PyPI version](https://img.shields.io/pypi/v/ozon-api)](https://pypi.org/project/ozon-api/)<!-- -->[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)<!-- -->[![License](https://img.shields.io/pypi/l/ozon-api)](https://pypi.org/project/ozon-api/)<!-- -->[![Downloads](https://img.shields.io/pypi/dm/ozon-api)](https://pypi.org/project/ozon-api/)<!-- -->[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ## Вклад в проект
