@@ -1,15 +1,27 @@
-# Ozon API v0.1.0.1
-`dev`
 
-### [Асинхронная Python библиотека для работы с Ozon API](https://pypi.org/project/ozon-api/)
 
+# Ozon API Python Client
+
+Асинхронная Python библиотека для работы с Ozon Seller API
+[![PyPI version](https://img.shields.io/pypi/v/ozon-api)](https://pypi.org/project/ozon-api/)<!-- -->[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)<!-- -->[![License](https://img.shields.io/pypi/l/ozon-api)](https://pypi.org/project/ozon-api/)<!-- -->[![Downloads](https://img.shields.io/pypi/dm/ozon-api)](https://pypi.org/project/ozon-api/)<!-- -->[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+## Вклад в проект
+__Мы приветствуем вклад в развитие проекта! Если вы хотите внести свой вклад, пожалуйста, следуйте этим шагам:__
+1. Форкните репозиторий
+2. Создайте ветку для вашей функции (`git checkout -b feature/AmazingFeature`)
+3. Зафиксируйте ваши изменения (`git commit -m 'Add some AmazingFeature'`)
+4. Отправьте изменения в вашу ветку (`git push origin feature/AmazingFeature`)
+5. Откройте Pull Request
+
+__Пожалуйста, убедитесь, что ваш код соответствует стилю проекта (мы используем Black для форматирования) и все тесты проходят успешно.__
 ## Установка
-
 ```bash
 pip install ozon-api
 ```
 
 ## Использование
+Получите API ключи в личном кабинете Ozon Seller
+Создайте файл .env:
 `.env`
 ```bash
 # Данные полученные в ЛК Ozon API
