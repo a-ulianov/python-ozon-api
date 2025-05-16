@@ -1,5 +1,3 @@
-
-
 # Ozon API Python Client
 
 Асинхронная Python библиотека для работы с Ozon Seller API
@@ -309,9 +307,224 @@ product_attributes_update_item = api.product_attributes_update(
 ```
 ___
 
-- product_pictures_import
-`complete`
-- product_pictures_info
-`complete`
-- product_list
-`complete`
+### _**[api.product_pictures_import](https://docs.ozon.ru/api/seller/#operation/ProductAPI_ProductImportPictures)**_
+
+_**Метод для загрузки изображений товаров на Ozon.**_
+
+**В одном запросе можно загрузить изображения для нескольких товаров.**  
+Для каждого товара указывается его идентификатор (`product_id`), список ссылок на изображения (`images`), а также опционально маркетинговый цвет (`color_image`) и изображения 360 (`images360`).
+
+```python
+from ozon_api.models.product_pictures_import import ProductPicturesImport
+
+pictures_import_model = [
+    ProductPicturesImport(
+        product_id=12345,  # обязательный идентификатор товара
+        color_image="Красный",  # опционально
+        images=[
+            "https://example.com/image1.jpg",
+            "https://example.com/image2.jpg"
+        ],
+        images360=[
+            "https://example.com/360_1.jpg"
+        ]
+    ),
+    # ... другие товары
+]
+
+result = asyncio.run(
+    api.product_pictures_import(pictures_import_model)
+)
+```
+
+_**Описание полей:**_
+- `product_id` (int, **обязательный**) — идентификатор товара в системе продавца
+- `color_image` (str, опционально) — маркетинговый цвет
+- `images` (list[str], **обязательный**) — массив ссылок на изображения. Первое изображение — главное
+- `images360` (list[str], опционально) — массив ссылок на 360° изображения (до 70 штук)
+
+_**Пример ответа:**_
+
+```json
+{
+    "task_id": 1234567
+}
+```
+
+_**task_id** — идентификатор задачи, по которому можно узнать статус загрузки изображений с помощью метода
+
+
+### _**[api.product_pictures_info](https://docs.ozon.ru/api/seller/#operation/ProductAPI_ProductInfoPicturesV2)**_
+
+_**Метод для получения статуса обработки изображений товаров.**_
+
+**Позволяет узнать статус загрузки и обработки изображений для товаров по идентификатору задачи (`task_id`).**
+
+```python
+from ozon_api.models.product_import_info import ProductPicturesInfoRequest
+
+# Запрос статуса по task_id, полученному после загрузки изображений
+request = ProductPicturesInfoRequest(task_id=1234567)
+
+result = asyncio.run(
+    api.product_pictures_info(request)
+)
+```
+
+_**Описание полей запроса:**_
+- `task_id` (int, **обязательный**) — идентификатор задачи загрузки изображений
+
+_**Пример ответа:**_
+```json
+{
+    "status": "success",
+    "items": [
+        {
+            "product_id": 12345,
+            "status": "success",
+            "errors": []
+        },
+        {
+            "product_id": 67890,
+            "status": "error",
+            "errors": ["Некорректный формат изображения"]
+        }
+    ]
+}
+```
+
+_**Описание полей ответа:**_
+- `status` (str) — общий статус задачи (`success`, `error` и др.)
+- `items` (list) — список товаров с результатами обработки изображений:
+    - `product_id` (int) — идентификатор товара
+    - `status` (str) — статус обработки изображений для товара
+    - `errors` (list[str]) — список ошибок, если есть
+___
+
+### _**[api.product_list](https://docs.ozon.ru/api/seller/#operation/ProductAPI_GetProductList)**_
+
+_**Метод для получения списка товаров продавца.**_
+
+**Позволяет получить список товаров с возможностью фильтрации, сортировки и постраничного вывода.**
+
+```python
+from ozon_api.models import ProductListRequest, ProductListFilter
+
+request = ProductListRequest(
+    filter=ProductListFilter(
+        offer_id=["ABC-123", "XYZ-789"],  # фильтрация по артикулам (опционально)
+        visibility="ALL"  # фильтрация по видимости (ALL, VISIBLE, INVISIBLE)
+    ),
+    limit=100,  # количество товаров в ответе (1-1000)
+    last_id=None,  # для пагинации (опционально)
+    sort_by="product_id",  # поле сортировки (опционально)
+    sort_dir="ASC"  # направление сортировки (ASC или DESC, опционально)
+)
+
+result = asyncio.run(
+    api.product_list(request)
+)
+```
+
+_**Описание полей запроса:**_
+- `filter` (ProductListFilter, **обязательный**) — фильтр товаров:
+    - `offer_id` (list[str], опционально) — список артикулов
+    - `product_id` (list[int], опционально) — список ID товаров
+    - `visibility` (str, опционально) — видимость товара (ALL, VISIBLE, INVISIBLE)
+- `limit` (int, **обязательный**) — количество товаров в ответе (1-1000)
+- `last_id` (str, опционально) — идентификатор последнего товара для пагинации
+- `sort_by` (str, опционально) — поле сортировки (например, 'product_id')
+- `sort_dir` (str, опционально) — направление сортировки ('ASC' или 'DESC')
+
+_**Пример ответа:**_
+```json
+{
+    "items": [
+        {
+            "product_id": 12345,
+            "offer_id": "ABC-123",
+            "visibility": "VISIBLE"
+        },
+        {
+            "product_id": 67890,
+            "offer_id": "XYZ-789",
+            "visibility": "INVISIBLE"
+        }
+    ],
+    "total": 2,
+    "last_id": null
+}
+```
+
+_**Описание полей ответа:**_
+- `items` (list) — список товаров:
+    - `product_id` (int) — идентификатор товара
+    - `offer_id` (str) — артикул товара
+    - `visibility` (str) — видимость товара
+- `total` (int) — общее количество товаров
+- `last_id` (str, опционально) — идентификатор последнего товара для пагинации
+
+___
+
+### _**[api.product_rating_by_sku](https://docs.ozon.ru/api/seller/#operation/ProductAPI_ProductRatingBySku)**_
+
+_**Метод для получения контент-рейтинга товаров и рекомендаций по его увеличению.**_
+
+```python
+from ozon_api.models import ProductRatingRequest, ProductRatingResponse
+
+# Получение рейтинга для списка SKU
+request = ProductRatingRequest(skus=[123456, 789012])
+response = asyncio.run(api.product_rating_by_sku(request.skus))
+
+for product in response.products:
+    print(f"SKU: {product.sku}, Рейтинг: {product.rating}")
+    for group in product.groups:
+        print(f"  Группа: {group.name}, Баллы: {group.rating}")
+        if group.recommendations:
+            print("  Рекомендации:")
+            for rec in group.recommendations:
+                print(f"    - {rec}")
+```
+
+_**Описание моделей:**_
+- `ProductRatingRequest` — модель запроса:
+    - `skus` (list[int]) — список SKU товаров
+- `ProductRatingResponse` — модель ответа:
+    - `products` (list[ProductRatingItem]) — список товаров с рейтингом
+        - `sku` (int) — идентификатор товара
+        - `rating` (float) — контент-рейтинг товара (0-100)
+        - `groups` (list[ProductRatingGroup]) — группы характеристик рейтинга
+            - `name` (str) — название группы
+            - `rating` (float) — баллы за группу
+            - `recommendations` (list[str], опционально) — рекомендации по улучшению
+
+_**Пример ответа:**_
+```json
+{
+    "products": [
+        {
+            "sku": 123456,
+            "rating": 85.5,
+            "groups": [
+                {
+                    "name": "Фото",
+                    "rating": 20.0,
+                    "recommendations": [
+                        "Добавьте больше фотографий товара"
+                    ]
+                },
+                {
+                    "name": "Описание",
+                    "rating": 15.0,
+                    "recommendations": [
+                        "Уточните описание товара"
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+___

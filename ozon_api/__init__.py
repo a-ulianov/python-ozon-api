@@ -286,7 +286,7 @@ class OzonAPI:
             try:
                 result.extend(data.get("result", []))
                 last_value_id = data["result"][-1]["id"]
-            except Exception as e:
+            except Exception:
                 logger.debug(
                     f"Error getting attribute values for {name}: dictionary not found"
                 )
@@ -405,7 +405,7 @@ class OzonAPI:
         data = await self._request(
             method="post",
             api_version="v1",
-            endpoint=f"product/import/info",
+            endpoint="product/import/info",
             json={"task_id": task},
         )
 
@@ -529,4 +529,26 @@ class OzonAPI:
             endpoint="product/info/limit",
         )
 
+        return data
+
+    async def product_rating_by_sku(
+        self: Type["OzonAPI"], sku_list: list[int, str]
+    ) -> dict[str, Any]:
+        """
+        Documentation: https://docs.ozon.ru/api/seller/#operation/ProductAPI_GetProductRatingBySku
+
+        Получить контент-рейтинг товаров по SKU.
+
+        Args:
+            sku_list (list[int]): Список SKU товаров.
+
+        Returns:
+            dict[str, Any]: JSON-ответ от API с рейтингом товаров.
+        """
+        data = await self._request(
+            method="post",
+            api_version="v1",
+            endpoint="product/rating-by-sku",
+            json={"skus": sku_list},
+        )
         return data

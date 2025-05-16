@@ -4,8 +4,14 @@ from pydantic import BaseModel, Field
 
 class ProductImport_Item_Attribute(BaseModel):
     complex_id: int
-    id: int = Field(description="Идентификатор характеристики.", title="Идентификатор характеристики")
-    values: list = Field(description="Массив вложенных значений характеристики.", title="Массив вложенных значений характеристики.")
+    id: int = Field(
+        description="Идентификатор характеристики.",
+        title="Идентификатор характеристики",
+    )
+    values: list = Field(
+        description="Массив вложенных значений характеристики.",
+        title="Массив вложенных значений характеристики.",
+    )
 
 
 class ProductImport_Item(BaseModel):

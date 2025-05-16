@@ -17,6 +17,15 @@ modification, are permitted provided that the following conditions are met:
    contributors may be used to endorse or promote products derived from
    this software without specific prior written permission.
 
+4. Any public use, publication, or distribution of this software or 
+   derivative works must include a clear and visible reference to 
+   the original author: Artem Navodniuk (https://github.com/mephistofox) 
+   in the documentation, about section, or any accompanying materials.
+
+Contact information: telegram: https://t.me/mephistofx
+Email: dev@fxcode.ru
+
+
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -27,3 +36,47 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+-------------------------------------------
+
+Русский перевод лицензии BSD 3-Clause (для информации):
+
+Авторское право (c) 2024, Artem Navodniuk - FxCode
+Все права защищены.
+
+Распространение и использование в исходной и двоичной формах, с изменениями или без них, разрешены при соблюдении следующих условий:
+
+1. При распространении исходного кода должны сохраняться указанное выше
+   уведомление об авторском праве, этот список условий и следующий отказ
+   от гарантий.
+
+2. При распространении в двоичной форме должны сохраняться указанное 
+   выше уведомление об авторском праве, этот список условий и следующий 
+   отказ от гарантий в документации и/или других материалах, поставляемых 
+   с распространением.
+
+3. Ни название правообладателя, ни имена его участников не могут быть 
+   использованы для поддержки или продвижения продуктов, созданных на основе этого 
+   программного обеспечения, без специального письменного разрешения.
+
+4. Любое публичное использование, публикация или распространение данного 
+   программного обеспечения или производных работ должно включать явную и видимую 
+   ссылку на оригинального автора: Artem Navodniuk (https://github.com/mephistofox) 
+   в документации, разделе "О программе" или любых сопроводительных материалах.
+
+Контактная информация: telegram: https://t.me/mephistofx
+Почта: dev@fxcode.ru
+
+ДАННОЕ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ ПРАВООБЛАДАТЕЛЕМ И УЧАСТНИКАМИ «КАК ЕСТЬ»,
+БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, ЯВНЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ,
+ВКЛЮЧАЯ, НО НЕ ОГРАНИЧИВАЯСЬ ГАРАНТИЯМИ КОММЕРЧЕСКОЙ ПРИГОДНОСТИ И ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЁННОЙ ЦЕЛИ.
+НИ В КОЕМ СЛУЧАЕ ПРАВООБЛАДАТЕЛЬ ИЛИ УЧАСТНИКИ НЕ НЕСУТ ОТВЕТСТВЕННОСТИ
+ПО КАКИМ-ЛИБО ПРЯМЫМ, КОСВЕННЫМ, СЛУЧАЙНЫМ, СПЕЦИАЛЬНЫМ, ШТРАФНЫМ ИЛИ ПОСЛЕДУЮЩИМ УБЫТКАМ
+(ВКЛЮЧАЯ, НО НЕ ОГРАНИЧИВАЯСЬ ПРИОБРЕТЕНИЕМ ЗАМЕНЯЮЩИХ ТОВАРОВ ИЛИ УСЛУГ;
+ПОТЕРЕЙ ВОЗМОЖНОСТИ ИСПОЛЬЗОВАНИЯ, ДАННЫХ ИЛИ ПРИБЫЛИ;
+ПРЕРЫВАНИЕМ ДЕЛОВОЙ ДЕЯТЕЛЬНОСТИ),
+НЕЗАВИСИМО ОТ ПРИЧИНЫ И НА ОСНОВАНИИ ЛЮБОЙ ТЕОРИИ ОТВЕТСТВЕННОСТИ,
+КОНТРАКТНОЙ, СТРОГОЙ ОТВЕТСТВЕННОСТИ ИЛИ ДЕЛИКТНОЙ (ВКЛЮЧАЯ ХАЛАТНОСТЬ ИЛИ ИНОЕ),
+ВОЗНИКШИХ КАКИМ-ЛИБО ОБРАЗОМ ИЗ-ЗА ИСПОЛЬЗОВАНИЯ ДАННОГО ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ,
+ДАЖЕ ЕСЛИ БЫЛА ПРЕДУПРЕЖДЕНА О ВОЗМОЖНОСТИ ТАКОГО УЩЕРБА.
