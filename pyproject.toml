@@ -1,6 +1,6 @@
 [project]
 name = "ozon-api"
-version = "0.1.2"
+version = "0.2.0"
 description = "Library for interacting with the Ozon API"
 authors = [{ name = "FxCode", email = "dev@fxcode.ru" }]
 requires-python = "~=3.10"
@@ -37,3 +37,4 @@ build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 asyncio_default_fixture_loop_scope = "function"
+asyncio_mode = "auto"
