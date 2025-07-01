@@ -42,6 +42,10 @@ from ozon_api.models.products_delete import (
     ProductDeleteItem,
     ProductsDeleteStatusItem,
 )
+from ozon_api.models.product_info_list import (
+    ProductInfoListRequest,
+    ProductInfoListResponse,
+)
 from ozon_api.models.upload_digital_codes import (
     UploadDigitalCodesRequest,
     UploadDigitalCodesResponse,
@@ -74,6 +78,15 @@ from ozon_api.models.product_barcode_add import (
     ProductBarcodeAddResponse,
     ProductBarcodeAddItem,
     ProductBarcodeAddError,
+)
+from ozon_api.models.product_barcode_generate import (
+    ProductBarcodeGenerateRequest,
+    ProductBarcodeGenerateResponse,
+    ProductBarcodeGenerateError,
+)
+from ozon_api.models.product_info_attributes import (
+    ProductInfoAttributesRequest,
+    ProductInfoAttributesResult,
 )
 
 __all__ = [
@@ -130,4 +143,11 @@ __all__ = [
     "ProductBarcodeAddResponse",
     "ProductBarcodeAddItem",
     "ProductBarcodeAddError",
+    "ProductBarcodeGenerateRequest",
+    "ProductBarcodeGenerateResponse",
+    "ProductBarcodeGenerateError",
+    "ProductInfoAttributesRequest",
+    "ProductInfoAttributesResult",
+    "ProductInfoListRequest",
+    "ProductInfoListResponse",
 ]

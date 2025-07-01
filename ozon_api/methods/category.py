@@ -4,9 +4,20 @@ from ozon_api.models import CategoryTreeResponse, CategoryAttributeResponse
 
 
 class OzonCategoryAPI(OzonAPIBase):
+    """
+    Класс для работы с категориями Ozon через API.
+
+    Позволяет получать дерево категорий, атрибуты категорий, значения атрибутов и полную информацию о категории.
+    """
+
     async def get_description_category_tree(
         self: Type["OzonCategoryAPI"],
     ) -> CategoryTreeResponse:
+        """
+        Получить дерево категорий Ozon.
+
+        :return: Ответ с деревом категорий (CategoryTreeResponse)
+        """
         response = await self._request(
             method="post",
             api_version="v1",
@@ -17,6 +28,12 @@ class OzonCategoryAPI(OzonAPIBase):
     async def get_description_category_attribute(
         self: Type["OzonCategoryAPI"], category_id: int = 0
     ) -> dict:
+        """
+        Получить атрибуты для заданной категории.
+
+        :param category_id: Идентификатор категории (по умолчанию 0)
+        :return: Словарь с атрибутами категории
+        """
         response = await self._request(
             method="post",
             api_version="v1",
@@ -36,6 +53,15 @@ class OzonCategoryAPI(OzonAPIBase):
         last_value_id: int = 0,
         limit: int = 5000,
     ) -> List[Dict[str, Any]]:
+        """
+        Получить значения для атрибута категории.
+
+        :param name: Название атрибута (опционально)
+        :param attribute_id: Идентификатор атрибута
+        :param last_value_id: Последний полученный id значения (для пагинации)
+        :param limit: Максимальное количество значений за запрос
+        :return: Список значений атрибута
+        """
         result: List[Dict[str, Any]] = []
         while True:
             data = await self._request(
@@ -66,6 +92,14 @@ class OzonCategoryAPI(OzonAPIBase):
         value: str,
         limit: int = 100,
     ):
+        """
+        Поиск значений атрибута по строке.
+
+        :param attribute_id: Идентификатор атрибута
+        :param value: Строка для поиска значения
+        :param limit: Максимальное количество результатов
+        :return: Результат поиска значений
+        """
         return await self._request(
             method="post",
             api_version="v1",
@@ -81,6 +115,11 @@ class OzonCategoryAPI(OzonAPIBase):
         )
 
     async def get_full_category_info(self: Type["OzonCategoryAPI"]) -> list[dict]:
+        """
+        Получить полную информацию о категории, включая все поля и их значения.
+
+        :return: Список словарей с информацией по каждому полю категории
+        """
         fields_response = await self.get_description_category_attribute()
         fields = fields_response.get("result", [])
         category_info = []

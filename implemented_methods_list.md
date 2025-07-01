@@ -15,15 +15,18 @@
 - upload_digital_codes_info — POST /v1/product/upload_digital_codes/info — Получение статуса загрузки цифровых кодов
 
 - product_pictures_import — POST /v1/product/pictures/import — Импорт изображений товаров
-- product_pictures_info — POST /v1/product/pictures/info — Получение статуса задачи импорта изображений товаров
-- product_pictures_info_v2 — POST /v2/product/pictures/info — Получение статуса задачи импорта изображений товаров (v2)
+- product_pictures_info — POST /v2/product/pictures/info — Получение статуса задачи импорта изображений товаров
+- product_pictures_info_v2 — POST /v2/product/pictures/info — Получение информации о изображениях товаров (новая версия)
 
 - product_barcode_add — POST /v1/barcode/add — Добавление штрихкода товара
+- product_barcode_generate — POST /v1/barcode/generate — Генерация штрихкода товара
 
 - product_subscription — POST /v1/product/info/subscription — Подписка на обновления информации о товаре
 
 - product_list — POST /v3/product/list — Получение списка товаров
 - product_info_limit — POST /v4/product/info/limit — Получение лимита по товарам
+- product_info_attributes — POST /v3/product/info/attributes — Получение описания характеристик товара
+- product_info_list — POST /v3/product/info/list — Получение информации о товарах по идентификаторам
 
 - product_update_offer_id — POST /v1/product/update/offer-id — Обновление offer_id (артикула) товара
 
@@ -32,4 +35,4 @@
 
 - product_related_sku — POST /v1/product/related-sku/get — Получение связанных SKU
 
-- product_rating_by_sku — POST /v1/product/rating-by-sku — Получение рейтинга товаров по SKU 
+- product_rating_by_sku — POST /v1/product/rating-by-sku — Получение рейтинга товаров по SKU

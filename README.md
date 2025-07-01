@@ -12,6 +12,32 @@ pip install ozon-api
 ```
 
 ## Быстрый старт
+
+### Рекомендуемый способ (с контекстным менеджером)
+```python
+import os
+from dotenv import load_dotenv
+from ozon_api import OzonAPI
+import asyncio
+
+load_dotenv()
+
+async def main():
+    # Используйте контекстный менеджер для лучшей производительности
+    # Одна HTTP-сессия переиспользуется для всех запросов
+    async with OzonAPI(
+        client_id=os.getenv("CLIENT_ID"),
+        api_key=os.getenv("API_KEY")
+    ) as api:
+        # Пример вызова методов
+        categories = await api.get_description_category_tree()
+        products = await api.get_product_list()
+        print(categories)
+
+asyncio.run(main())
+```
+
+### Альтернативный способ (обратная совместимость)
 ```python
 import os
 from dotenv import load_dotenv
@@ -31,6 +57,8 @@ async def main():
 
 asyncio.run(main())
 ```
+
+> **Важно:** При использовании без контекстного менеджера каждый запрос создает новую HTTP-сессию, что менее эффективно. Рекомендуется использовать `async with` для лучшей производительности.
 
 _**Устанавливаем язык ответа:**_
 ```python

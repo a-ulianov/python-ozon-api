@@ -7,6 +7,12 @@ class OzonProductRatingAPI(OzonAPIBase):
     async def product_rating_by_sku(
         self: Type["OzonProductRatingAPI"], request: ProductRatingRequest
     ) -> ProductRatingResponse:
+        """
+        Метод для получения рейтинга товаров по SKU.
+
+        :param request: Данные для получения рейтинга товаров по SKU
+        :return: Ответ с результатом получения рейтинга товаров по SKU
+        """
         data = await self._request(
             method="post",
             api_version="v1",

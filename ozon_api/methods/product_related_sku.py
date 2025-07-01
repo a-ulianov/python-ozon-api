@@ -10,6 +10,12 @@ class OzonProductRelatedSkuAPI(OzonAPIBase):
     async def product_related_sku(
         self: Type["OzonProductRelatedSkuAPI"], request: ProductRelatedSkuRequest
     ) -> ProductRelatedSkuResponse:
+        """
+        Метод для получения списка товаров, связанных с указанным товаром.
+
+        :param request: Данные для получения списка связанных товаров
+        :return: Ответ с результатом получения списка связанных товаров
+        """
         data = await self._request(
             method="post",
             api_version="v1",
