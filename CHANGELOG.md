@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.6.0 (2025-07-01)
+
+### Features
+
+- **base**: Добавление ограничения 50 запросов в минуту
+  ([`4829ea9`](https://github.com/mephistofox/python-ozon-api/commit/4829ea90df928c8be06d23ff9f9ceef472e44f95))
+
+
 ## v1.5.1 (2025-07-01)
 
 ### Bug Fixes
