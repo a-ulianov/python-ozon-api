@@ -1,3 +1,5 @@
+__version__ = "1.0.0"
+
 from .base import OzonAPIBase
 from .methods.category import OzonCategoryAPI
 from .methods.product_archive import OzonProductArchiveAPI
