@@ -1,6 +1,9 @@
 import sys
 from types import TracebackType
 from typing import Any, Literal, Optional
+import asyncio
+import time
+from collections import deque
 
 from aiohttp import ClientSession
 from loguru import logger
@@ -39,6 +42,9 @@ class OzonAPIBase:
         __language (Literal): Язык ответов API
         __type_id (Optional[int]): ID типа товара
         __session (Optional[ClientSession]): Сессия aiohttp для выполнения запросов
+        __rate_limit_semaphore (asyncio.Semaphore): Семафор для ограничения конкурентных запросов
+        __request_timestamps (deque): Очередь временных меток запросов
+        __max_requests_per_minute (int): Максимальное количество запросов в минуту
     """
 
     __client_id: str
@@ -48,6 +54,9 @@ class OzonAPIBase:
     __language: Literal["DEFAULT", "RU", "EN", "TR", "ZH_HANS"] = "DEFAULT"
     __type_id: Optional[int] = None
     __session: Optional[ClientSession] = None
+    __rate_limit_semaphore: asyncio.Semaphore
+    __request_timestamps: deque
+    __max_requests_per_minute: int = 50
 
     @property
     def api_url(self) -> str:
@@ -187,6 +196,8 @@ class OzonAPIBase:
         """
         self.client_id = client_id
         self.api_key = api_key
+        self.__rate_limit_semaphore = asyncio.Semaphore(self.__max_requests_per_minute)
+        self.__request_timestamps = deque(maxlen=self.__max_requests_per_minute)
         logger.info("Ozon API initialized successfully.")
 
     async def __aenter__(self) -> "OzonAPIBase":
@@ -252,6 +263,26 @@ class OzonAPIBase:
             }
         )
 
+    async def __check_rate_limit(self) -> None:
+        """
+        Проверяет и контролирует ограничение количества запросов.
+        Ожидает, если достигнут лимит запросов в минуту.
+        """
+        now = time.time()
+        
+        # Удаляем старые временные метки (старше 1 минуты)
+        while self.__request_timestamps and now - self.__request_timestamps[0] > 60:
+            self.__request_timestamps.popleft()
+        
+        # Если достигнут лимит запросов, ждем до освобождения слота
+        if len(self.__request_timestamps) >= self.__max_requests_per_minute:
+            wait_time = 60 - (now - self.__request_timestamps[0])
+            if wait_time > 0:
+                logger.warning(f"Rate limit reached. Waiting {wait_time:.2f} seconds.")
+                await asyncio.sleep(wait_time)
+        
+        self.__request_timestamps.append(now)
+
     @retry(
         retry=retry_if_exception_type((OzonAPIServerError, OzonAPIError)),
         stop=stop_after_attempt(3),
@@ -266,7 +297,7 @@ class OzonAPIBase:
         json: Optional[dict[str, Any]] = None,
     ) -> dict[str, Any]:
         """
-        Выполняет HTTP-запрос к API Ozon.
+        Выполняет HTTP-запрос к API Ozon с учетом ограничения запросов.
 
         Args:
             method (Literal["post", "get", "put", "delete"]): HTTP метод запроса
@@ -286,9 +317,8 @@ class OzonAPIBase:
             OzonAPIError: При прочих ошибках
 
         Note:
-            - Автоматически закрывает временные сессии после выполнения запроса
-            - При ошибках сервера (500) или общих ошибках API выполняет 3 попытки запроса
-            - Между попытками делает экспоненциальную задержку от 4 до 10 секунд
+            - Автоматически ограничивает количество запросов до 50 в минуту
+            - При достижении лимита запросов ожидает освобождения слота
         """
         url = f"{self.__api_url}/{api_version}/{endpoint}"
         log_context = {
@@ -300,6 +330,9 @@ class OzonAPIBase:
         }
 
         logger.debug("Отправка запроса к API Ozon", extra=log_context)
+
+        # Проверяем ограничение запросов
+        await self.__check_rate_limit()
 
         session = await self._get_session()
         should_close_session = session != self.__session
