@@ -2,6 +2,60 @@
 
 <!-- version list -->
 
+## v1.5.1 (2025-07-01)
+
+### Bug Fixes
+
+- **models**: Удаление импортов со звездочкой и исправление списка __all__
+  ([`59633bf`](https://github.com/mephistofox/python-ozon-api/commit/59633bf9329f8cf501eac0628f90621509268aa6))
+
+### Code Style
+
+- Исправление форматирования и добавление пробелов в коде
+  ([`452fba2`](https://github.com/mephistofox/python-ozon-api/commit/452fba2968b357485811bb0ecb526064df8c84a7))
+
+### Refactoring
+
+- **models**: Добавлен импорт ProductDeleteWithoutSkuStatus и обновлен список __all__
+  ([`d3248df`](https://github.com/mephistofox/python-ozon-api/commit/d3248df1e2f648c7d3367f6d25c0cf0b6ae509a2))
+
+
+## Unreleased
+
+### Bug Fixes
+
+- **models**: Удаление импортов со звездочкой и исправление списка __all__
+  ([`59633bf`](https://github.com/mephistofox/python-ozon-api/commit/59633bf9329f8cf501eac0628f90621509268aa6))
+
+### Code Style
+
+- Исправление форматирования и добавление пробелов в коде
+  ([`452fba2`](https://github.com/mephistofox/python-ozon-api/commit/452fba2968b357485811bb0ecb526064df8c84a7))
+
+### Refactoring
+
+- **models**: Добавлен импорт ProductDeleteWithoutSkuStatus и обновлен список __all__
+  ([`d3248df`](https://github.com/mephistofox/python-ozon-api/commit/d3248df1e2f648c7d3367f6d25c0cf0b6ae509a2))
+
+
+## Unreleased
+
+### Bug Fixes
+
+- **models**: Удаление импортов со звездочкой и исправление списка __all__
+  ([`59633bf`](https://github.com/mephistofox/python-ozon-api/commit/59633bf9329f8cf501eac0628f90621509268aa6))
+
+### Code Style
+
+- Исправление форматирования и добавление пробелов в коде
+  ([`452fba2`](https://github.com/mephistofox/python-ozon-api/commit/452fba2968b357485811bb0ecb526064df8c84a7))
+
+### Refactoring
+
+- **models**: Добавлен импорт ProductDeleteWithoutSkuStatus и обновлен список __all__
+  ([`d3248df`](https://github.com/mephistofox/python-ozon-api/commit/d3248df1e2f648c7d3367f6d25c0cf0b6ae509a2))
+
+
 ## v1.5.0 (2025-07-01)
 
 ### Features
