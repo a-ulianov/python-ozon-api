@@ -11,7 +11,7 @@ Ozon API Client Library
 - 0.1.0: Начальная версия с базовой функциональностью
 """
 
-__version__ = "1.3.0"
+__version__ = "1.4.0"
 
 from .base import OzonAPIBase
 from .methods.category import OzonCategoryAPI

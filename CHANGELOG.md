@@ -2,6 +2,22 @@
 
 <!-- version list -->
 
+## v1.4.0 (2025-07-01)
+
+### Features
+
+- **api**: Добавлен метод удаления товаров без SKU из архива
+  ([`cc961c4`](https://github.com/mephistofox/python-ozon-api/commit/cc961c427c4a2b07905e5b0445414a8a8ab732e6))
+
+
+## Unreleased
+
+### Features
+
+- **api**: Добавлен метод удаления товаров без SKU из архива
+  ([`cc961c4`](https://github.com/mephistofox/python-ozon-api/commit/cc961c427c4a2b07905e5b0445414a8a8ab732e6))
+
+
 ## v1.3.0 (2025-07-01)
 
 ### Chores
