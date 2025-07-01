@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v1.5.0 (2025-07-01)
+
+### Features
+
+- **api**: Добавлен новый метод для получения статуса загрузки кодов активации для услуг и цифровых
+  товаров.
+  ([`a057802`](https://github.com/mephistofox/python-ozon-api/commit/a057802ffb7dbb422e079786a530d7fca59abfbd))
+
+
 ## v1.4.0 (2025-07-01)
 
 ### Features
