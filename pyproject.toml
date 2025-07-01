@@ -60,3 +60,4 @@ major_on_zero = false
 tag_format = "v{version}"
 github_repository = "mephistofox/python-ozon-api"
 repository_url = "https://github.com/mephistofox/python-ozon-api"
+github_token = "env:GH_TOKEN"
