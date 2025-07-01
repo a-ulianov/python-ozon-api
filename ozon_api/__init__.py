@@ -1,4 +1,4 @@
-__version__ = "1.0.0"
+__version__ = "0.1.0"
 
 from .base import OzonAPIBase
 from .methods.category import OzonCategoryAPI
@@ -29,6 +29,10 @@ class OzonAPI(
     OzonProductBarcodeAddAPI,
     OzonProductBarcodeGenerateAPI,
 ):
+    """
+    Основной класс для работы с API Ozon.
+    Объединяет все доступные методы API в единый интерфейс.
+    """
     pass
 
 
