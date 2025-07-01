@@ -1,3 +1,5 @@
+from .category_attribute import CategoryAttributeItem, CategoryAttributeResponse
+from .category_tree import CategoryTreeItem, CategoryTreeResponse
 from .import_by_sku import ImportBySku, ImportBySku_Item
 from .product_archive import (
     ProductArchiveRequest,
@@ -32,10 +34,7 @@ from .product_info_attributes import (
     ProductInfoAttributesRequest,
     ProductInfoAttributesResult,
 )
-from .product_info_list import (
-    ProductInfoListRequest,
-    ProductInfoListResponse,
-)
+from .product_info_list import ProductInfoListRequest, ProductInfoListResponse
 from .product_list import (
     ProductListFilter,
     ProductListItem,
@@ -72,6 +71,11 @@ from .products_delete import (
     ProductsDeleteResponse,
     ProductsDeleteStatusItem,
 )
+from .products_delete_without_sku import (
+    ProductDeleteWithoutSkuRequest,
+    ProductDeleteWithoutSkuStatus,
+    ProductDeleteWithoutSkuResponse,
+)
 from .upload_digital_codes import (
     UploadDigitalCodesInfoRequest,
     UploadDigitalCodesInfoResponse,
@@ -80,14 +84,6 @@ from .upload_digital_codes import (
     UploadDigitalCodesResponse,
     UploadDigitalCodesResponseResult,
 )
-
-from .category_attribute import CategoryAttributeItem, CategoryAttributeResponse
-from .category_tree import CategoryTreeItem, CategoryTreeResponse
-
-from .product_subscription import *
-from .product_update_offer_id import *
-from .products_delete_without_sku import *
-from .upload_digital_codes_info import *
 
 __all__ = [
     "ImportBySku",
@@ -150,9 +146,7 @@ __all__ = [
     "ProductInfoAttributesResult",
     "ProductInfoListRequest",
     "ProductInfoListResponse",
-    "ProductsDeleteWithoutSkuRequest",
-    "ProductsDeleteWithoutSkuResponse",
-    "UploadDigitalCodesInfoRequest",
-    "UploadDigitalCodesInfoResponse",
-    "UploadDigitalCodesInfoResult",
+    "ProductDeleteWithoutSkuRequest",
+    "ProductDeleteWithoutSkuStatus",
+    "ProductDeleteWithoutSkuResponse"
 ]
