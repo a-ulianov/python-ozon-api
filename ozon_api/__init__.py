@@ -1,4 +1,14 @@
-__version__ = "1.2.0"
+"""
+Ozon API Client Library
+======================
+
+Библиотека для работы с API Ozon Marketplace.
+
+История версий:
+- 0.1.0: Начальная версия с базовой функциональностью
+"""
+
+__version__ = "0.1.0"
 
 from .base import OzonAPIBase
 from .methods.category import OzonCategoryAPI
