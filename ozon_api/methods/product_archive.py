@@ -1,4 +1,5 @@
 from typing import Type
+
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_archive import (
     ProductArchiveRequest,
@@ -14,6 +15,7 @@ class OzonProductArchiveAPI(OzonAPIBase):
 
     Предоставляет методы для архивирования и восстановления товаров с помощью соответствующих эндпоинтов Ozon API.
     """
+
     async def product_archive(
         self: Type["OzonProductArchiveAPI"], request: ProductArchiveRequest
     ) -> ProductArchiveResponse:

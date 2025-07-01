@@ -143,9 +143,9 @@ response = await api.product_pictures(request)
 3. Внесите изменения и добавьте тесты
 4. Убедитесь, что код соответствует стандартам:
    ```bash
-   black .
+   ruff check --fix
    isort .
-   flake8
+   black .
    ```
 5. Закоммитьте изменения:
    ```bash

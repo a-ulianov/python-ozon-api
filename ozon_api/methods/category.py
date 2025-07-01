@@ -1,6 +1,7 @@
 from typing import Any, Dict, List, Type
+
 from ozon_api.base import OzonAPIBase
-from ozon_api.models import CategoryTreeResponse, CategoryAttributeResponse
+from ozon_api.models import CategoryAttributeResponse, CategoryTreeResponse
 
 
 class OzonCategoryAPI(OzonAPIBase):

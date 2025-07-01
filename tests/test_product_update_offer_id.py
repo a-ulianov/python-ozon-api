@@ -1,10 +1,12 @@
 import os
+
 import pytest
 from dotenv import load_dotenv
+
 from ozon_api import OzonAPI
 from ozon_api.models.product_update_offer_id import (
-    ProductUpdateOfferIdRequest,
     ProductUpdateOfferIdItem,
+    ProductUpdateOfferIdRequest,
     ProductUpdateOfferIdResponse,
 )
 

@@ -1,6 +1,8 @@
 import os
+
 import pytest
 from dotenv import load_dotenv
+
 from ozon_api import OzonAPI
 
 load_dotenv()

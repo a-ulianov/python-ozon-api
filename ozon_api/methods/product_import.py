@@ -1,18 +1,19 @@
 from typing import Type
+
 from ozon_api.base import OzonAPIBase
-from ozon_api.models.product_import import ProductImport
 from ozon_api.models.import_by_sku import ImportBySku
-from ozon_api.models.product_import_info import ProductImportInfo
 from ozon_api.models.product_attributes_update import ProductAttributesUpdate
+from ozon_api.models.product_import import ProductImport
+from ozon_api.models.product_import_info import ProductImportInfo
 from ozon_api.models.products_delete import (
     ProductsDeleteRequest,
     ProductsDeleteResponse,
 )
 from ozon_api.models.upload_digital_codes import (
-    UploadDigitalCodesRequest,
-    UploadDigitalCodesResponse,
     UploadDigitalCodesInfoRequest,
     UploadDigitalCodesInfoResponse,
+    UploadDigitalCodesRequest,
+    UploadDigitalCodesResponse,
 )
 
 

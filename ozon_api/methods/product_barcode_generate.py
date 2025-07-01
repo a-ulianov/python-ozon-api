@@ -1,4 +1,5 @@
 from typing import Type
+
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_barcode_generate import (
     ProductBarcodeGenerateRequest,

@@ -1,14 +1,16 @@
-from typing import Any, Literal, Optional
+import sys
 from types import TracebackType
+from typing import Any, Literal, Optional
+
 from aiohttp import ClientSession
 from loguru import logger
-import sys
+
 from .exceptions import (
-    OzonAPIError,
     OzonAPIClientError,
+    OzonAPIConflictError,
+    OzonAPIError,
     OzonAPIForbiddenError,
     OzonAPINotFoundError,
-    OzonAPIConflictError,
     OzonAPIServerError,
 )
 
