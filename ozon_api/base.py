@@ -6,9 +6,9 @@ from aiohttp import ClientSession
 from loguru import logger
 from tenacity import (
     retry,
+    retry_if_exception_type,
     stop_after_attempt,
     wait_exponential,
-    retry_if_exception_type,
 )
 
 from .exceptions import (
@@ -27,7 +27,7 @@ logger.add(sys.stderr, level="INFO")
 class OzonAPIBase:
     """
     Базовый класс для работы с API Ozon.
-    
+
     Предоставляет основные методы для взаимодействия с API Ozon, включая управление сессией,
     аутентификацию и базовые HTTP-запросы.
 
@@ -192,7 +192,7 @@ class OzonAPIBase:
     async def __aenter__(self) -> "OzonAPIBase":
         """
         Асинхронный контекстный менеджер для управления сессией.
-        
+
         Создает новую сессию с необходимыми заголовками аутентификации.
 
         Returns:
@@ -296,13 +296,10 @@ class OzonAPIBase:
             "endpoint": endpoint,
             "api_version": api_version,
             "url": url,
-            "has_payload": json is not None
+            "has_payload": json is not None,
         }
 
-        logger.debug(
-            "Отправка запроса к API Ozon",
-            extra=log_context
-        )
+        logger.debug("Отправка запроса к API Ozon", extra=log_context)
 
         session = await self._get_session()
         should_close_session = session != self.__session
@@ -310,28 +307,26 @@ class OzonAPIBase:
         try:
             async with getattr(session, method.lower())(url, json=json) as response:
                 data = await response.json()
-                
-                log_context.update({
-                    "status_code": response.status,
-                    "response_size": len(str(data))
-                })
-                
+
+                log_context.update(
+                    {"status_code": response.status, "response_size": len(str(data))}
+                )
+
                 if response.status >= 400:
                     code = data.get("code", response.status)
                     message = data.get("message", "Unknown error")
                     details = data.get("details", [])
-                    
-                    log_context.update({
-                        "error_code": code,
-                        "error_message": message,
-                        "error_details": details
-                    })
-                    
-                    logger.error(
-                        f"Ошибка API Ozon: {message}",
-                        extra=log_context
+
+                    log_context.update(
+                        {
+                            "error_code": code,
+                            "error_message": message,
+                            "error_details": details,
+                        }
                     )
-                    
+
+                    logger.error(f"Ошибка API Ozon: {message}", extra=log_context)
+
                     error_map = {
                         400: OzonAPIClientError,
                         403: OzonAPIForbiddenError,
@@ -341,22 +336,15 @@ class OzonAPIBase:
                     }
                     exc_class = error_map.get(response.status, OzonAPIError)
                     raise exc_class(code, message, details)
-                
-                logger.debug(
-                    "Успешный ответ от API Ozon",
-                    extra=log_context
-                )
+
+                logger.debug("Успешный ответ от API Ozon", extra=log_context)
                 return data
-                
+
         except Exception as e:
-            log_context.update({
-                "error_type": type(e).__name__,
-                "error_message": str(e)
-            })
-            logger.error(
-                f"Ошибка при выполнении запроса: {str(e)}",
-                extra=log_context
+            log_context.update(
+                {"error_type": type(e).__name__, "error_message": str(e)}
             )
+            logger.error(f"Ошибка при выполнении запроса: {str(e)}", extra=log_context)
             raise
         finally:
             if should_close_session and not session.closed:

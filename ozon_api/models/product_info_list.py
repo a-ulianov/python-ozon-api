@@ -75,7 +75,7 @@ class ProductInfoListVisibilityDetails(BaseModel):
 
 class ProductInfoListItem(BaseModel):
     model_config = {"protected_namespaces": ()}
-    
+
     barcodes: Optional[List[str]]
     color_image: Optional[List[str]]
     commissions: Optional[List[ProductInfoListCommission]]

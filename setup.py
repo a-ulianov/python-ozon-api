@@ -1,4 +1,5 @@
 from setuptools import find_packages, setup
+
 from ozon_api import __version__
 
 with open("README.md", "r", encoding="utf-8") as fh:

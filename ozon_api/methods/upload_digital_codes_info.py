@@ -22,4 +22,4 @@ class UploadDigitalCodesInfo(BaseMethod):
         :param task_id: Идентификатор задачи на загрузку кодов активации
         :return: Ответ с информацией о статусе загрузки
         """
-        return self._run(UploadDigitalCodesInfoRequest(task_id=task_id)) 
+        return self._run(UploadDigitalCodesInfoRequest(task_id=task_id))

@@ -67,7 +67,7 @@ class ProductInfoAttributesPdfFile(BaseModel):
 
 class ProductInfoAttributesModelInfo(BaseModel):
     model_config = {"protected_namespaces": ()}
-    
+
     model_id: Optional[int] = Field(None, description="Идентификатор модели")
     count: Optional[int] = Field(
         None, description="Количество объединённых товаров модели"
@@ -76,7 +76,7 @@ class ProductInfoAttributesModelInfo(BaseModel):
 
 class ProductInfoAttributesResultItem(BaseModel):
     model_config = {"protected_namespaces": ()}
-    
+
     attributes: Optional[List[ProductInfoAttributesAttribute]] = Field(
         default_factory=list, description="Список характеристик товара"
     )
