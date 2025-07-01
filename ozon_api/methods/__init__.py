@@ -13,6 +13,7 @@ from .product_barcode_add import ProductBarcodeAdd
 from .product_pictures import ProductPictures
 from .category import Category
 from .products_delete_without_sku import ProductsDeleteWithoutSku
+from .upload_digital_codes_info import UploadDigitalCodesInfo
 
 __all__ = [
     'ProductImport',
@@ -30,4 +31,5 @@ __all__ = [
     'ProductPictures',
     'Category',
     'ProductsDeleteWithoutSku',
+    'UploadDigitalCodesInfo',
 ] 

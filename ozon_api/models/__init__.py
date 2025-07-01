@@ -84,6 +84,11 @@ from .upload_digital_codes import (
 from .category_attribute import CategoryAttributeItem, CategoryAttributeResponse
 from .category_tree import CategoryTreeItem, CategoryTreeResponse
 
+from .product_subscription import *
+from .product_update_offer_id import *
+from .products_delete_without_sku import *
+from .upload_digital_codes_info import *
+
 __all__ = [
     "ImportBySku",
     "ImportBySku_Item",
@@ -145,4 +150,9 @@ __all__ = [
     "ProductInfoAttributesResult",
     "ProductInfoListRequest",
     "ProductInfoListResponse",
+    "ProductsDeleteWithoutSkuRequest",
+    "ProductsDeleteWithoutSkuResponse",
+    "UploadDigitalCodesInfoRequest",
+    "UploadDigitalCodesInfoResponse",
+    "UploadDigitalCodesInfoResult",
 ]
