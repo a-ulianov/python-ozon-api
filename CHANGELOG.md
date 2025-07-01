@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v1.3.0 (2025-07-01)
+
+### Chores
+
+- Add PyPI publishing configuration
+  ([`ebfccb6`](https://github.com/mephistofox/python-ozon-api/commit/ebfccb6774d9daf543db59cabdfd60d8ea8eaa15))
+
+### Features
+
+- Add automatic PyPI publishing
+  ([`cc2a101`](https://github.com/mephistofox/python-ozon-api/commit/cc2a1019282286119f4dc27a08e4d42c06e96b18))
+
+
 ## v1.0.0 (2025-07-01)
 
 - Initial Release
