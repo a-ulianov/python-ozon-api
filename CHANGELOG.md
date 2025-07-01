@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.2.0 (2025-07-01)
+
+### Features
+
+- Add API class documentation
+  ([`274e5e4`](https://github.com/mephistofox/python-ozon-api/commit/274e5e4e48e3b91eb1e75fd3162eafdda3513860))
+
+
 ## v1.0.0 (2025-07-01)
 
 - Initial Release
