@@ -2,6 +2,24 @@
 
 <!-- version list -->
 
+## v1.6.1 (2025-07-19)
+
+### Bug Fixes
+
+- **category**: Исправить доступ к атрибутам базового класса
+  ([`319d64a`](https://github.com/mephistofox/python-ozon-api/commit/319d64a3d80fabd5491a32f42fed025fcba3216c))
+
+### Code Style
+
+- **models**: Добавление разделителя в коде для улучшения читаемости
+  ([`07f741e`](https://github.com/mephistofox/python-ozon-api/commit/07f741ea8ccf887fdd7c2849704b459480e4bf1f))
+
+### Refactoring
+
+- **methods**: Обновление импортов и исправление аннотаций типов
+  ([`081e268`](https://github.com/mephistofox/python-ozon-api/commit/081e2689988600005ba4ee1b6383e9bb29923035))
+
+
 ## v1.6.0 (2025-07-01)
 
 ### Features
