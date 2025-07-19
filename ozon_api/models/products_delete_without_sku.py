@@ -25,3 +25,5 @@ class ProductDeleteWithoutSkuResponse(BaseModel):
     """Ответ на запрос удаления товара без SKU."""
 
     status: List[ProductDeleteWithoutSkuStatus]
+
+# ---------------------------------------- #
