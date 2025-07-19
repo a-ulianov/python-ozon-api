@@ -1,5 +1,3 @@
-from typing import Type
-
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_subscription import (
     ProductSubscriptionRequest,
@@ -9,7 +7,7 @@ from ozon_api.models.product_subscription import (
 
 class OzonProductSubscriptionAPI(OzonAPIBase):
     async def product_subscription(
-        self: Type["OzonProductSubscriptionAPI"], request: ProductSubscriptionRequest
+        self: "OzonProductSubscriptionAPI", request: ProductSubscriptionRequest
     ) -> ProductSubscriptionResponse:
         """
         Метод для получения информации о подписке на товары.

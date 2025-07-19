@@ -1,11 +1,11 @@
-from typing import Any, Type
+from typing import Any
 
 from ozon_api.base import OzonAPIBase
 
 
 class OzonProductPicturesAPI(OzonAPIBase):
     async def product_pictures_import(
-        self: Type["OzonProductPicturesAPI"], items: dict
+        self: "OzonProductPicturesAPI", items: dict
     ) -> dict[str, Any]:
         """
         Метод для загрузки или обновления изображений товара.
@@ -29,7 +29,7 @@ class OzonProductPicturesAPI(OzonAPIBase):
         return data
 
     async def product_pictures_info(
-        self: Type["OzonProductPicturesAPI"], product_id: list[str]
+        self: "OzonProductPicturesAPI", product_id: list[str]
     ) -> dict[str, Any]:
         """
         Метод для получения информации о изображениях товара.

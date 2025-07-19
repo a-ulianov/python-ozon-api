@@ -1,24 +1,21 @@
-from dataclasses import dataclass
-
-from ..core import BaseModel
+from pydantic import BaseModel, Field
 
 
-@dataclass
-class UploadDigitalCodesInfoResult:
+class UploadDigitalCodesInfoResult(BaseModel):
     """Результат проверки статуса загрузки цифровых кодов"""
 
-    status: str
+    status: str = Field(..., description="Статус загрузки: pending, imported, failed.")
 
 
-@dataclass
 class UploadDigitalCodesInfoResponse(BaseModel):
     """Ответ на запрос статуса загрузки цифровых кодов"""
 
     result: UploadDigitalCodesInfoResult
 
 
-@dataclass
 class UploadDigitalCodesInfoRequest(BaseModel):
     """Запрос статуса загрузки цифровых кодов"""
 
-    task_id: int
+    task_id: int = Field(
+        ..., description="Идентификатор задачи на загрузку кодов активации."
+    )

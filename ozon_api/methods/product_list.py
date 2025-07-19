@@ -1,12 +1,11 @@
-from typing import Type
-
+from typing import Any
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_list import ProductListRequest, ProductListResult
 
 
 class OzonProductListAPI(OzonAPIBase):
     async def product_list(
-        self: Type["OzonProductListAPI"], request: ProductListRequest
+        self: "OzonProductListAPI", request: ProductListRequest
     ) -> ProductListResult:
         """
         Метод для получения списка всех товаров.
@@ -25,7 +24,7 @@ class OzonProductListAPI(OzonAPIBase):
         )
         return ProductListResult(**data)
 
-    async def product_info_limit(self: Type["OzonProductListAPI"]) -> dict[str, any]:
+    async def product_info_limit(self: "OzonProductListAPI") -> dict[str, Any]:
         """
         Метод для получения информации о лимитах:
 

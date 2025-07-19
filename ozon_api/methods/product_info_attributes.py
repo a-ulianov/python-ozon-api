@@ -1,5 +1,3 @@
-from typing import Type
-
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_info_attributes import (
     ProductInfoAttributesRequest,
@@ -9,7 +7,7 @@ from ozon_api.models.product_info_attributes import (
 
 class OzonProductInfoAttributesAPI(OzonAPIBase):
     async def product_info_attributes(
-        self: Type["OzonProductInfoAttributesAPI"],
+        self: "OzonProductInfoAttributesAPI",
         request: ProductInfoAttributesRequest,
     ) -> ProductInfoAttributesResult:
         """

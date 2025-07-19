@@ -1,5 +1,3 @@
-from typing import Type
-
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.import_by_sku import ImportBySku
 from ozon_api.models.product_attributes_update import ProductAttributesUpdate
@@ -25,7 +23,7 @@ class OzonProductImportAPI(OzonAPIBase):
     """
 
     async def product_import(
-        self: Type["OzonProductImportAPI"], request: ProductImport
+        self: "OzonProductImportAPI", request: ProductImport
     ) -> dict:
         """
         Импортировать товары в Ozon.
@@ -42,7 +40,7 @@ class OzonProductImportAPI(OzonAPIBase):
         return data
 
     async def product_import_info(
-        self: Type["OzonProductImportAPI"], request: ProductImportInfo
+        self: "OzonProductImportAPI", request: ProductImportInfo
     ) -> dict:
         """
         Получить информацию о задаче импорта товаров.
@@ -59,7 +57,7 @@ class OzonProductImportAPI(OzonAPIBase):
         return data
 
     async def product_import_by_sku(
-        self: Type["OzonProductImportAPI"], request: ImportBySku
+        self: "OzonProductImportAPI", request: ImportBySku
     ) -> dict:
         """
         Импортировать товары по SKU.
@@ -76,7 +74,7 @@ class OzonProductImportAPI(OzonAPIBase):
         return data
 
     async def product_attributes_update(
-        self: Type["OzonProductImportAPI"], request: ProductAttributesUpdate
+        self: "OzonProductImportAPI", request: ProductAttributesUpdate
     ) -> dict:
         """
         Обновить характеристики товаров.
@@ -93,7 +91,7 @@ class OzonProductImportAPI(OzonAPIBase):
         return data
 
     async def products_delete(
-        self: Type["OzonProductImportAPI"], request: ProductsDeleteRequest
+        self: "OzonProductImportAPI", request: ProductsDeleteRequest
     ) -> ProductsDeleteResponse:
         """
         Удалить товары из системы Ozon.
@@ -110,7 +108,7 @@ class OzonProductImportAPI(OzonAPIBase):
         return ProductsDeleteResponse(**data)
 
     async def upload_digital_codes(
-        self: Type["OzonProductImportAPI"], request: UploadDigitalCodesRequest
+        self: "OzonProductImportAPI", request: UploadDigitalCodesRequest
     ) -> UploadDigitalCodesResponse:
         """
         Загрузить цифровые коды для товаров.
@@ -127,7 +125,7 @@ class OzonProductImportAPI(OzonAPIBase):
         return UploadDigitalCodesResponse(**data)
 
     async def upload_digital_codes_info(
-        self: Type["OzonProductImportAPI"], request: UploadDigitalCodesInfoRequest
+        self: "OzonProductImportAPI", request: UploadDigitalCodesInfoRequest
     ) -> UploadDigitalCodesInfoResponse:
         """
         Получить информацию о задаче загрузки цифровых кодов.

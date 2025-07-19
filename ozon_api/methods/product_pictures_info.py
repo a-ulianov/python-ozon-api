@@ -1,5 +1,3 @@
-from typing import Type
-
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_pictures_info import (
     ProductPicturesInfoRequestV2,
@@ -9,7 +7,7 @@ from ozon_api.models.product_pictures_info import (
 
 class OzonProductPicturesInfoAPI(OzonAPIBase):
     async def product_pictures_info_v2(
-        self: Type["OzonProductPicturesInfoAPI"], request: ProductPicturesInfoRequestV2
+        self: "OzonProductPicturesInfoAPI", request: ProductPicturesInfoRequestV2
     ) -> ProductPicturesInfoResponseV2:
         """
         Метод для получения информации о изображениях товара.

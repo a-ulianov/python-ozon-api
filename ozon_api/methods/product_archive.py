@@ -1,5 +1,3 @@
-from typing import Type
-
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_archive import (
     ProductArchiveRequest,
@@ -17,7 +15,7 @@ class OzonProductArchiveAPI(OzonAPIBase):
     """
 
     async def product_archive(
-        self: Type["OzonProductArchiveAPI"], request: ProductArchiveRequest
+        self: "OzonProductArchiveAPI", request: ProductArchiveRequest
     ) -> ProductArchiveResponse:
         """
         Архивирует товары на платформе Ozon.
@@ -38,7 +36,7 @@ class OzonProductArchiveAPI(OzonAPIBase):
         return ProductArchiveResponse(**data)
 
     async def product_unarchive(
-        self: Type["OzonProductArchiveAPI"], request: ProductUnarchiveRequest
+        self: "OzonProductArchiveAPI", request: ProductUnarchiveRequest
     ) -> ProductUnarchiveResponse:
         """
         Разархивирует товары на платформе Ozon.

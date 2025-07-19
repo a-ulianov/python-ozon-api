@@ -1,5 +1,3 @@
-from typing import Type
-
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_update_offer_id import (
     ProductUpdateOfferIdRequest,
@@ -9,7 +7,7 @@ from ozon_api.models.product_update_offer_id import (
 
 class OzonProductUpdateOfferIdAPI(OzonAPIBase):
     async def product_update_offer_id(
-        self: Type["OzonProductUpdateOfferIdAPI"], request: ProductUpdateOfferIdRequest
+        self: "OzonProductUpdateOfferIdAPI", request: ProductUpdateOfferIdRequest
     ) -> ProductUpdateOfferIdResponse:
         """
         Метод для обновления идентификатора предложения.

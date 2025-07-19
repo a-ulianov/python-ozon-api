@@ -1,82 +1,88 @@
-from .category_attribute import CategoryAttributeItem, CategoryAttributeResponse
-from .category_tree import CategoryTreeItem, CategoryTreeResponse
-from .import_by_sku import ImportBySku, ImportBySku_Item
-from .product_archive import (
+from ozon_api.models.category_attribute import (
+    CategoryAttributeItem,
+    CategoryAttributeResponse,
+)
+from ozon_api.models.category_tree import CategoryTreeItem, CategoryTreeResponse
+from ozon_api.models.import_by_sku import ImportBySku, ImportBySku_Item
+from ozon_api.models.product_archive import (
     ProductArchiveRequest,
     ProductArchiveResponse,
     ProductUnarchiveRequest,
     ProductUnarchiveResponse,
 )
-from .product_attributes_update import (
+from ozon_api.models.product_attributes_update import (
     ProductAttributesUpdate,
     ProductAttributesUpdate_Item,
     ProductAttributesUpdate_Item_Attribute,
     ProductAttributesUpdate_Item_Attribute_Value,
 )
-from .product_barcode_add import (
+from ozon_api.models.product_barcode_add import (
     ProductBarcodeAddError,
     ProductBarcodeAddItem,
     ProductBarcodeAddRequest,
     ProductBarcodeAddResponse,
 )
-from .product_barcode_generate import (
+from ozon_api.models.product_barcode_generate import (
     ProductBarcodeGenerateError,
     ProductBarcodeGenerateRequest,
     ProductBarcodeGenerateResponse,
 )
-from .product_import_info import (
+from ozon_api.models.product_import_info import (
     ProductImportInfo,
     ProductPicturesInfoRequest,
     ProductPicturesInfoResponse,
     ProductPicturesInfoResponseItem,
 )
-from .product_info_attributes import (
+from ozon_api.models.product_info_attributes import (
     ProductInfoAttributesRequest,
     ProductInfoAttributesResult,
 )
-from .product_info_list import ProductInfoListRequest, ProductInfoListResponse
-from .product_list import (
+from ozon_api.models.product_info_list import (
+    ProductInfoListRequest,
+    ProductInfoListResponse,
+)
+from ozon_api.models.product_list import (
     ProductListFilter,
     ProductListItem,
     ProductListRequest,
     ProductListResponse,
 )
-from .product_pictures_info import (
+from ozon_api.models.product_pictures_info import (
     ProductPicturesInfoErrorV2,
     ProductPicturesInfoItemV2,
     ProductPicturesInfoRequestV2,
     ProductPicturesInfoResponseV2,
 )
-from .product_rating import ProductRatingRequest, ProductRatingResponse
-from .product_related_sku import (
+from ozon_api.models.product_rating import ProductRatingRequest, ProductRatingResponse
+from ozon_api.models.product_related_sku import (
     ProductRelatedSkuError,
     ProductRelatedSkuItem,
     ProductRelatedSkuRequest,
     ProductRelatedSkuResponse,
 )
-from .product_subscription import (
+from ozon_api.models.product_subscription import (
     ProductSubscriptionItem,
     ProductSubscriptionRequest,
     ProductSubscriptionResponse,
 )
-from .product_update_offer_id import (
+from ozon_api.models.product_update_offer_id import (
     ProductUpdateOfferIdError,
     ProductUpdateOfferIdItem,
     ProductUpdateOfferIdRequest,
     ProductUpdateOfferIdResponse,
 )
-from .products_delete import (
+from ozon_api.models.products_delete import (
     ProductDeleteItem,
     ProductsDeleteRequest,
     ProductsDeleteResponse,
     ProductsDeleteStatusItem,
 )
-from .products_delete_without_sku import (
+from ozon_api.models.products_delete_without_sku import (
     ProductDeleteWithoutSkuRequest,
     ProductDeleteWithoutSkuResponse,
     ProductDeleteWithoutSkuStatus,
 )
-from .upload_digital_codes import (
+from ozon_api.models.upload_digital_codes import (
     UploadDigitalCodesInfoRequest,
     UploadDigitalCodesInfoResponse,
     UploadDigitalCodesInfoResponseResult,

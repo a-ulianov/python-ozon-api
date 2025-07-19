@@ -1,19 +1,31 @@
-from .category import Category
-from .product_archive import ProductArchive
-from .product_barcode_add import ProductBarcodeAdd
-from .product_barcode_generate import ProductBarcodeGenerate
-from .product_import import ProductImport
-from .product_info_attributes import ProductInfoAttributes
-from .product_info_list import ProductInfoList
-from .product_list import ProductList
-from .product_pictures import ProductPictures
-from .product_pictures_info import ProductPicturesInfo
-from .product_rating import ProductRating
-from .product_related_sku import ProductRelatedSku
-from .product_subscription import ProductSubscription
-from .product_update_offer_id import ProductUpdateOfferId
-from .products_delete_without_sku import ProductsDeleteWithoutSku
-from .upload_digital_codes_info import UploadDigitalCodesInfo
+from ozon_api.methods.category import OzonCategoryAPI as Category
+from ozon_api.methods.product_archive import OzonProductArchiveAPI as ProductArchive
+from ozon_api.methods.product_barcode_add import (
+    OzonProductBarcodeAddAPI as ProductBarcodeAdd,
+)
+from ozon_api.methods.product_barcode_generate import (
+    OzonProductBarcodeGenerateAPI as ProductBarcodeGenerate,
+)
+from ozon_api.methods.product_import import OzonProductImportAPI as ProductImport
+from ozon_api.methods.product_info_attributes import (
+    OzonProductInfoAttributesAPI as ProductInfoAttributes,
+)
+from ozon_api.methods.product_info_list import OzonProductInfoListAPI as ProductInfoList
+from ozon_api.methods.product_list import OzonProductListAPI as ProductList
+from ozon_api.methods.product_pictures import OzonProductPicturesAPI as ProductPictures
+from ozon_api.methods.product_pictures_info import (
+    OzonProductPicturesInfoAPI as ProductPicturesInfo,
+)
+from ozon_api.methods.product_rating import OzonProductRatingAPI as ProductRating
+from ozon_api.methods.product_related_sku import (
+    OzonProductRelatedSkuAPI as ProductRelatedSku,
+)
+from ozon_api.methods.product_subscription import (
+    OzonProductSubscriptionAPI as ProductSubscription,
+)
+from ozon_api.methods.product_update_offer_id import (
+    OzonProductUpdateOfferIdAPI as ProductUpdateOfferId,
+)
 
 __all__ = [
     "ProductImport",

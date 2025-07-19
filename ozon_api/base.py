@@ -269,18 +269,18 @@ class OzonAPIBase:
         Ожидает, если достигнут лимит запросов в минуту.
         """
         now = time.time()
-        
+
         # Удаляем старые временные метки (старше 1 минуты)
         while self.__request_timestamps and now - self.__request_timestamps[0] > 60:
             self.__request_timestamps.popleft()
-        
+
         # Если достигнут лимит запросов, ждем до освобождения слота
         if len(self.__request_timestamps) >= self.__max_requests_per_minute:
             wait_time = 60 - (now - self.__request_timestamps[0])
             if wait_time > 0:
                 logger.warning(f"Rate limit reached. Waiting {wait_time:.2f} seconds.")
                 await asyncio.sleep(wait_time)
-        
+
         self.__request_timestamps.append(now)
 
     @retry(

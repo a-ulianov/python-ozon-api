@@ -1,5 +1,3 @@
-from typing import Type
-
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_barcode_add import (
     ProductBarcodeAddRequest,
@@ -9,7 +7,7 @@ from ozon_api.models.product_barcode_add import (
 
 class OzonProductBarcodeAddAPI(OzonAPIBase):
     async def product_barcode_add(
-        self: Type["OzonProductBarcodeAddAPI"], request: ProductBarcodeAddRequest
+        self: "OzonProductBarcodeAddAPI", request: ProductBarcodeAddRequest
     ) -> ProductBarcodeAddResponse:
         """
         Если у товара есть штрихкод, который не указан в системе Ozon, привяжите его с помощью этого метода. Если штрихкода нет, вы можете создать его через метод `/v1/barcode/generate`.

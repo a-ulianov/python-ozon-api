@@ -1,5 +1,3 @@
-from typing import Type
-
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_barcode_generate import (
     ProductBarcodeGenerateRequest,
@@ -9,7 +7,7 @@ from ozon_api.models.product_barcode_generate import (
 
 class OzonProductBarcodeGenerateAPI(OzonAPIBase):
     async def product_barcode_generate(
-        self: Type["OzonProductBarcodeGenerateAPI"],
+        self: "OzonProductBarcodeGenerateAPI",
         request: ProductBarcodeGenerateRequest,
     ) -> ProductBarcodeGenerateResponse:
         """

@@ -1,25 +1,27 @@
-from dataclasses import dataclass
 from typing import List, Optional
 
+from pydantic import BaseModel, Field
 
-@dataclass
-class ProductDeleteWithoutSkuRequest:
+
+class ProductDeleteWithoutSkuRequest(BaseModel):
     """Запрос на удаление товара без SKU."""
 
-    offer_id: str
+    offer_id: str = Field(
+        ..., description="Идентификатор товара в системе продавца — offer_id."
+    )
 
 
-@dataclass
-class ProductDeleteWithoutSkuStatus:
+class ProductDeleteWithoutSkuStatus(BaseModel):
     """Статус удаления товара."""
 
-    error: Optional[str]
-    is_deleted: bool
-    offer_id: str
+    error: Optional[str] = Field(..., description="Описание ошибки.")
+    is_deleted: bool = Field(..., description="Статус удаления товара.")
+    offer_id: str = Field(
+        ..., description="Идентификатор товара в системе продавца — offer_id."
+    )
 
 
-@dataclass
-class ProductDeleteWithoutSkuResponse:
+class ProductDeleteWithoutSkuResponse(BaseModel):
     """Ответ на запрос удаления товара без SKU."""
 
     status: List[ProductDeleteWithoutSkuStatus]

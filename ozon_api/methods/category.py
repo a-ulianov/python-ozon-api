@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Type
+from typing import Any, Dict, List
 
 from ozon_api.base import OzonAPIBase
 from ozon_api.models import CategoryAttributeResponse, CategoryTreeResponse
@@ -12,7 +12,7 @@ class OzonCategoryAPI(OzonAPIBase):
     """
 
     async def get_description_category_tree(
-        self: Type["OzonCategoryAPI"],
+        self: "OzonCategoryAPI",
     ) -> CategoryTreeResponse:
         """
         Получить дерево категорий Ozon.
@@ -27,7 +27,7 @@ class OzonCategoryAPI(OzonAPIBase):
         return CategoryTreeResponse(**response)
 
     async def get_description_category_attribute(
-        self: Type["OzonCategoryAPI"], category_id: int = 0
+        self: "OzonCategoryAPI", category_id: int = 0
     ) -> dict:
         """
         Получить атрибуты для заданной категории.
@@ -40,20 +40,20 @@ class OzonCategoryAPI(OzonAPIBase):
             api_version="v1",
             endpoint="description-category/attribute",
             json={
-                "description_category_id": self._OzonAPIBase__description_category_id,
-                "type_id": self._OzonAPIBase__type_id,
-                "language": self._OzonAPIBase__language,
+                "description_category_id": self.description_category_id,
+                "type_id": self.type_id,
+                "language": self.language,
             },
         )
         return CategoryAttributeResponse(**response).model_dump()
 
     async def get_description_category_attribute_values(
-        self: Type["OzonCategoryAPI"],
+        self: "OzonCategoryAPI",
         name: str = "",
         attribute_id: int = 0,
         last_value_id: int = 0,
         limit: int = 5000,
-    ) -> List[Dict[str, Any]]:
+    ) -> Dict[str, Any]:
         """
         Получить значения для атрибута категории.
 
@@ -71,11 +71,11 @@ class OzonCategoryAPI(OzonAPIBase):
                 endpoint="description-category/attribute/values",
                 json={
                     "attribute_id": attribute_id,
-                    "description_category_id": self._OzonAPIBase__description_category_id,
-                    "language": self._OzonAPIBase__language,
+                    "description_category_id": self.description_category_id,
+                    "language": self.language,
                     "last_value_id": last_value_id,
                     "limit": limit,
-                    "type_id": self._OzonAPIBase__type_id,
+                    "type_id": self.type_id,
                 },
             )
             try:
@@ -88,7 +88,7 @@ class OzonCategoryAPI(OzonAPIBase):
         return {"result": result}
 
     async def get_description_category_attribute_values_search(
-        self: Type["OzonCategoryAPI"],
+        self: "OzonCategoryAPI",
         attribute_id: int,
         value: str,
         limit: int = 100,
@@ -107,15 +107,15 @@ class OzonCategoryAPI(OzonAPIBase):
             endpoint="description-category/attribute/values/search",
             json={
                 "attribute_id": attribute_id,
-                "description_category_id": self._OzonAPIBase__description_category_id,
-                "language": self._OzonAPIBase__language,
+                "description_category_id": self.description_category_id,
+                "language": self.language,
                 "limit": limit,
                 "type_id": self.type_id,
                 "value": value,
             },
         )
 
-    async def get_full_category_info(self: Type["OzonCategoryAPI"]) -> list[dict]:
+    async def get_full_category_info(self: "OzonCategoryAPI") -> list[dict]:
         """
         Получить полную информацию о категории, включая все поля и их значения.
 

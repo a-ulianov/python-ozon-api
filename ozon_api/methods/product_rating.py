@@ -1,12 +1,10 @@
-from typing import Type
-
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_rating import ProductRatingRequest, ProductRatingResponse
 
 
 class OzonProductRatingAPI(OzonAPIBase):
     async def product_rating_by_sku(
-        self: Type["OzonProductRatingAPI"], request: ProductRatingRequest
+        self: "OzonProductRatingAPI", request: ProductRatingRequest
     ) -> ProductRatingResponse:
         """
         Метод для получения рейтинга товаров по SKU.

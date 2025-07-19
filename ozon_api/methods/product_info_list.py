@@ -1,5 +1,3 @@
-from typing import Type
-
 from ozon_api.base import OzonAPIBase
 from ozon_api.models.product_info_list import (
     ProductInfoListRequest,
@@ -9,7 +7,7 @@ from ozon_api.models.product_info_list import (
 
 class OzonProductInfoListAPI(OzonAPIBase):
     async def product_info_list(
-        self: Type["OzonProductInfoListAPI"], request: ProductInfoListRequest
+        self: "OzonProductInfoListAPI", request: ProductInfoListRequest
     ) -> ProductInfoListResponse:
         """
         Метод для получения информации о товарах по их идентификаторам.
