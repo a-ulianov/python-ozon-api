@@ -141,3 +141,4 @@ class OzonCategoryAPI(OzonAPIBase):
                 print(f"Error processing field {field['name']}: {e}")
                 continue
         return category_info
+# Fixed attribute access
