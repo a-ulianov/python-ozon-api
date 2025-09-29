@@ -12,3 +12,4 @@ venv/
 *.egg-info/
 **/logs/
 **/migrations/versions/
+main.py
