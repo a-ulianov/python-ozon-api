@@ -266,7 +266,9 @@ class ProductInfoListItem(BaseModel):
     min_price: Optional[str] = Field(
         None, description="Минимальная цена товара при бустинге."
     )
-    model_info: ProductInfoListModelInfo
+    model_info: ProductInfoListModelInfo = Field(
+        ..., description="Информация о модели товара."
+    )
     name: str = Field(
         ..., description="Наименование товара."
     )
@@ -279,22 +281,34 @@ class ProductInfoListItem(BaseModel):
     price: Optional[str] = Field(
         None, description="Текущая цена товара."
     )
-    price_indexes: ProductInfoListPriceIndexes
+    price_indexes: ProductInfoListPriceIndexes = Field(
+        ..., description="Ценовые индексы товара."
+    )
     primary_image: Optional[List[str]] = Field(
         None, description="Главное изображение (если не указано, то по индексам)."
     )
     sources: List[ProductInfoListSource] = Field(
         default_factory=list, description="Информация об источниках схожих предложений."
     )
-    statuses: ProductInfoListStatuses
-    stocks: ProductInfoListStocks
+    statuses: ProductInfoListStatuses = Field(
+        ..., description="Описание состояний товара на Ozon."
+    )
+    stocks: ProductInfoListStocks = Field(
+        ..., description="Информация об остатках товара."
+    )
     type_id: Optional[int] = Field(
         None, description="Идентификатор типа товара."
     )
-    updated_at: str
-    vat: Optional[str] = None
+    updated_at: str = Field(
+        ..., description="Дата и время обновления информации."
+    )
+    vat: Optional[str] = Field(
+        None, description="Ставка НДС."
+    )
     visibility_details: ProductInfoListVisibilityDetails
-    volume_weight: Optional[float] = None
+    volume_weight: Optional[float] = Field(
+        None, description="Объемный вес товара."
+    )
 
 
 class ProductInfoListResponse(BaseModel):
