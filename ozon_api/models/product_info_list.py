@@ -254,8 +254,8 @@ class ProductInfoListItem(BaseModel):
     is_kgt:  bool = Field(
         ..., description="Товар является крупногабаритным."
     )
-    is_prepayment_allowed: bool = Field(
-        ..., description="Возможна предоплата."
+    is_prepayment_allowed: Optional[bool] = Field(
+        None, description="Возможна предоплата."
     )
     is_super: bool = Field(
         ..., description="Является супер-товаром."
